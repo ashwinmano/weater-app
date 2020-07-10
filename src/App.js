@@ -21,7 +21,7 @@ class App extends React.Component{
       description:"",
       error:false
     };
-    this.getWeather();
+    
     this.weatherIcon={
       Thunderstorm:"wi-thunderstorm",
       Drizzle:"wi-sleet",
@@ -68,8 +68,16 @@ class App extends React.Component{
 
 
 
-  getWeather=async()=>{
-    const api_call=await fetch(`http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_key}`);
+  getWeather=async(e)=>{
+
+    e.preventDefault();
+
+    const city=e.target.elements.city.value;
+    const country=e.target.elements.country.value;
+
+
+    if(city && country){
+      const api_call=await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&appid=${API_key}`);
     const response =await api_call.json();
 
     console.log(response);
@@ -84,11 +92,15 @@ class App extends React.Component{
   
     });
     this.get_WeatherIcon(this.weatherIcon,response.weather[0].id);
+    }
+    else{
+      this.setState({error:true});
+    }
   };
   render(){
     return(
       <div className="App">
-        <Form />
+        <Form loadweather={this.getWeather} error={this.state.error} />
 
         <Weather city={this.state.city} 
         country={this.state.country} 
