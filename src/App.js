@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import 'weather-icons/css/weather-icons.css';
 import './App.css';
 import Weather from './components/weather_component';
-
+import Form from './components/form.component';
 
 const API_key="b50943acbba3788abe752897b4cff05f";
 
@@ -88,14 +88,16 @@ class App extends React.Component{
   render(){
     return(
       <div className="App">
-      <Weather city={this.state.city} 
-      country={this.state.country} 
-      temp_celsius={this.state.celsius}
-      temp_max={this.state.temp_max}
-      temp_min={this.state.temp_min} 
-      description={this.state.description}
-      weatherIcon={this.state.icon}
-      />
+        <Form />
+
+        <Weather city={this.state.city} 
+        country={this.state.country} 
+        temp_celsius={this.state.celsius}
+        temp_max={this.state.temp_max}
+        temp_min={this.state.temp_min} 
+        description={this.state.description}
+        weatherIcon={this.state.icon}
+        />
     </div>
     );
   }
