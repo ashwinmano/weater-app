@@ -2,7 +2,7 @@ import React from 'react';
 import './form.style.css';
 const Form = props =>{
     return(
-        <div className="container">
+        <div className="container text-light">
             <div>{props.error? error():null}</div>
             <form onSubmit={props.loadweather}>
             <div className="row">
@@ -12,7 +12,7 @@ const Form = props =>{
                <div className="col-md-3">
                <input type="text" className="form-control" name="country" autoComplete="off"  placeholder="Country" />
                </div>
-               <div className="col-md-3 mt-md-0 text-md-left">
+               <div className="col-md-3 mt-md-0 py-2 text-md-left">
                    <button className="btn btn-danger">Get Weather</button>
                </div>
                </div> 
