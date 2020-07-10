@@ -4,8 +4,8 @@ import 'weather-icons/css/weather-icons.css';
 import './App.css';
 import Weather from './components/weather_component';
 
-//api call api.openweathermap.org/data/2.5/weather?q=London,uk
-const API_key=" b50943acbba3788abe752897b4cff05f"
+
+const API_key="b50943acbba3788abe752897b4cff05f";
 
 class App extends React.Component{
   constructor(){
@@ -16,7 +16,7 @@ class App extends React.Component{
   }
 
   getWeather=async()=>{
-    const api_call=await fetch(`http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_key}`)
+    const api_call=await fetch(`http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=${API_key}`);
     const response =await api_call.json();
 
     console.log(response);
